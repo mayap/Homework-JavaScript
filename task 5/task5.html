@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Task 5</title>
+		
+		<style type="text/css">
+			input {
+				margin-bottom: 5px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<label for="radius">Radius</label><br />
+		<input type="text" id="radius" /><br />
+		<label for="volume">Volume</label><br />
+		<input type="text" id="volume" /><br />
+		<button onclick="volume()">Calculate</button>
+	</body>
+	<script type="text/javascript">
+		function volume() {
+			var radius = document.getElementById('radius').value;
+			var pow = Math.pow(radius, 3);
+			var vol = (4/3) * 3.14159 * pow;
+			document.getElementById('volume').value = vol;
+		}
+	</script>
+</html>

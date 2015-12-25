@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Task 6</title>
+		<script type="text/javascript">
+			var randomImages = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png'];
+
+			function getImage(imgArr, path) {
+			path = path || 'images/';
+			var number = Math.floor(Math.random() * imgArr.length);
+			var image = imgArr[number];
+			var placeImg = '<img src="' + path + image + '" alt = "">';
+			document.write(placeImg); 
+			document.close();
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div>
+			<script type="text/javascript">
+				getImage(randomImages, 'images/');
+			</script>
+		</div>
+	</body>
+</html>

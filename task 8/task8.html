@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Task 8</title>
+		<style type="text/css">
+			table, tr, td, th {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="table">
+			<thead>
+				<tr>
+					<th>Heading1</th>
+					<th>Heading2</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			<tr>
+				<td>Row</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>Row</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>Row</td>
+				<td>3</td>
+			</tr>
+			</tbody>
+		
+		</table>
+		
+		<br />
+		<button onclick="addRows()">Add a row</button>
+	
+	</body>
+	
+	<script type="text/javascript">
+		function addRows() {
+			var table = document.getElementById('table');
+			var rowsCount = table.rows.length;
+			
+			var row = table.insertRow(rowsCount);
+
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+
+			cell1.innerHTML = "Row";
+			cell2.innerHTML = rowsCount;	
+		}	
+	</script>
+	
+</html>

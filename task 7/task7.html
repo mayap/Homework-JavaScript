@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Task 7</title>
+		<style type="text/css">
+			p {
+				padding: 0;
+				margin: 0;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div>
+			<label for="convert">Convert</label>
+			<input type="text" id="convert"/>
+			<select id="convertFrom">
+				<option value="kg">kg</option>
+				<option value="lb">lb</option>
+			</select>
+			
+			<select id="convertTo">
+				<option value="lb">lb</option>
+				<option value="kg">kg</option>
+			</select>
+			<button onclick="calculate()">Calculate</button> <br />
+			
+			<p id="output"></p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function calculate() {
+			var valueToConvert = document.getElementById('convert').value;
+			var firstSelected = document.getElementById("convertFrom").value;
+			var secondSelected = document.getElementById("convertTo").value;
+			
+			if (firstSelected === "kg" && secondSelected === "lb") {
+				valueToConvert *= 2.20462262;
+			} else if (firstSelected === "lb" && secondSelected === "kg") {
+				valueToConvert /= 2.20462262;
+			}
+			
+			document.getElementById('output').innerHTML = valueToConvert;
+		}
+	</script>
+</html>

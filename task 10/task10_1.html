@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<style type="text/css">
+			p {
+				margin: 0;
+				padding 0;
+			}
+			
+			input, select {
+				margin-bottom: 5px;
+			}
+			
+			input {
+				width: 201px;
+			}
+			
+			#submit {
+				width: 60px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<form method="POST">
+			First Name: <input name="fName" type="text" style="margin-left: 40px;" />
+				<div id="firstNameMsg" style="display: none;">
+					<span style="color:red;">Please fill in your first name.</span>
+				</div>
+			<br />
+			
+			Last Name: <input name="lName" type="text" style="margin-left: 42px;" />
+				<div id="lastNameMsg" style="display: none;">
+					<span style="color:red;">Please fill in your last name.</span>
+				</div>
+			<br />
+			
+			Screen Name: <input name="screenName" type="text" style="margin-left: 26px;" />
+				<div id="screenNameMsg" style="display: none;">
+					<span style="color:red;">Please fill in your screen name.</span>
+				</div>
+			<br />
+			
+			<label for="country" style="margin-right: 59px; margin-top: 2px;">Country:</label>
+			<select id="selectOptions" style="width: 205px; margin-top: 2px;">
+				<option>Australia</option>
+				<option>Austria</option>
+				<option>Brazil</option>
+				<option>Brunei</option>
+				<option>Englad</option>
+				<option>Bulgaria</option>
+				<option>Denmark</option>
+				<option>France</option>
+				<option>Germany</option>
+				<option>Hungary</option>
+				<option>Indonesia</option>
+				<option>Japan</option>
+				<option>Latvia</option>
+				<option>Lebanon</option>
+				<option>Mexico</option>
+				<option>New Zealand</option>
+				<option>Portugal</option>
+				<option>Romania</option>
+				<option>South Africa</option>
+				<option>South Korea</option>
+				<option>Turkey</option>
+				<option>Other</option>
+			</select>
+			<input type="text" id="hiddenInput" style="display: none" name="hiddenValue" />
+				<div id="hiddenMsg" style="display: none;">
+					<span style="color:red;">Please fill in your country.</span>
+				</div>
+			<br />
+			
+			Password: <input name="pass" type="text" style="margin-left: 50px;" />
+				<div id="passMsg" style="display: none;">
+					<span style="color:red;">Please fill in your password.</span>
+				</div>
+			<br />
+			
+			Repeat Password: <input name="repeatPass" type="text" id="repPass" style="margin-left: 2px;" />
+				<div id="repPassMsg" style="display: none;">
+					<span style="color:red;">Please repeat your password.</span>
+				</div>
+			<br />
+			
+			<input type="button" onclick="return validate(form)" value="Submit" id="submit">
+		</form>
+		
+		
+		<script type="text/javascript">
+			function validate(form) {
+				var firstName = form.fName.value;
+				var lastName = form.lName.value;
+				var screenNameVar = form.screenName.value;
+				var passVar = form.pass.value;
+				var repPassVar = form.repeatPass.value;
+				
+			<!-- Validate first name-->
+				if (!firstName) {
+					document.getElementById('firstNameMsg').style.display = "inline";
+					form.fName.style.backgroundColor = "red";
+				} 
+				if (firstName != "") {
+       				form.fName.style.backgroundColor = "";
+        			document.getElementById('firstNameMsg').style.display = "none";
+				}
+			<!-- Validate last name-->	
+				if (!lastName) {
+					document.getElementById('lastNameMsg').style.display = "inline";
+					form.lName.style.backgroundColor = "red";
+				} 
+				if (lastName != "") {
+       				form.lName.style.backgroundColor = "";
+        			document.getElementById('lastNameMsg').style.display = "none";
+				}
+			<!-- Validate screen name-->	
+				if (!screenNameVar) {
+					document.getElementById('screenNameMsg').style.display = "inline";
+					form.screenName.style.backgroundColor = "red";
+				} 
+				if (screenNameVar != "") {
+       				form.screenName.style.backgroundColor = "";
+        			document.getElementById('screenNameMsg').style.display = "none";
+				}
+			<!-- Validate password-->	
+				if (!passVar) {
+					document.getElementById('passMsg').style.display = "inline";
+					form.pass.style.backgroundColor = "red";
+				} 
+				if (passVar != "") {
+       				form.pass.style.backgroundColor = "";
+        			document.getElementById('passMsg').style.display = "none";
+				}
+			<!-- Validate repeated password-->
+				if (!repPassVar) {
+					document.getElementById('repPassMsg').style.display = "inline";
+					form.repeatPass.style.backgroundColor = "red";
+				} 
+				if (repPassVar != "") {
+       				form.repeatPass.style.backgroundColor = "";
+        			document.getElementById('repPassMsg').style.display = "none";
+				}	
+			<!-- Country Options-->
+				var selectOpt = document.getElementById("selectOptions");
+				var userOpt = selectOpt.options[selectOpt.selectedIndex].text;
+				
+				var hiddenInpValue = form.hiddenValue.value;
+				
+				if (userOpt == "Other") {
+					document.getElementById('hiddenInput').style.display = "inline";
+					
+					if (!hiddenInpValue) {
+						document.getElementById('hiddenMsg').style.display = "inline";
+						form.hiddenValue.style.backgroundColor = "red";
+					}
+					if (hiddenInpValue != "") {
+       					form.hiddenValue.style.backgroundColor = "";
+        				document.getElementById('hiddenMsg').style.display = "none";
+					}
+				}	
+			}
+		</script>
+	</body>
+</html>
